@@ -1,0 +1,106 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 28px;
+  background: rgba(7, 10, 22, 0.88);
+  border-bottom: 1px solid rgba(109, 92, 255, 0.18);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-link h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-mark {
+  color: #6f63ff;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+.nav-links,
+.nav-user-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-link {
+  color: #d8dcff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+}
+
+.nav-link:hover {
+  border-color: rgba(111, 99, 255, 0.25);
+  background: rgba(111, 99, 255, 0.08);
+}
+
+.nav-link-accent {
+  background: linear-gradient(135deg, #7467ff 0%, #6f63ff 100%);
+  border-color: rgba(111, 99, 255, 0.26);
+  color: white;
+  font-weight: 700;
+  padding: 11px 18px;
+  box-shadow: 0 6px 18px rgba(116, 103, 255, 0.28);
+  transition: all 0.2s ease;
+}
+
+.nav-link-accent:hover {
+  box-shadow: 0 10px 24px rgba(116, 103, 255, 0.38);
+  transform: translateY(-1px);
+}
+
+.user-chip,
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 600;
+}
+
+.user-chip {
+  color: #b4b8d0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.logout-button {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: #c7ccdf;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .nav-user-area {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

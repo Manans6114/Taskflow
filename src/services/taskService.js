@@ -1,22 +1,30 @@
-import { DEMO_TASKS, TASK_STORAGE_KEY } from '../utils/constants'
+import { TASK_STORAGE_KEY } from '../utils/constants'
+
+const TASK_API_URL = 'https://jsonplaceholder.typicode.com/todos'
+
+const normalizeTask = (todo) => ({
+  id: todo.id,
+  name: todo.title,
+  status: todo.completed ? 'Completed' : 'In Progress',
+  assignedTo: `User ${todo.userId}`,
+})
 
 const readStorage = () => {
   if (typeof window === 'undefined') {
-    return DEMO_TASKS
+    return []
   }
 
   const storedValue = window.localStorage.getItem(TASK_STORAGE_KEY)
 
   if (!storedValue) {
-    window.localStorage.setItem(TASK_STORAGE_KEY, JSON.stringify(DEMO_TASKS))
-    return DEMO_TASKS
+    return []
   }
 
   try {
     const parsedValue = JSON.parse(storedValue)
-    return Array.isArray(parsedValue) ? parsedValue : DEMO_TASKS
+    return Array.isArray(parsedValue) ? parsedValue : []
   } catch {
-    return DEMO_TASKS
+    return []
   }
 }
 
@@ -26,7 +34,25 @@ const writeStorage = (tasks) => {
   }
 }
 
-export const loadTasks = async () => readStorage()
+export const loadTasks = async () => {
+  const storedTasks = readStorage()
+
+  if (storedTasks.length > 0) {
+    return storedTasks
+  }
+
+  const response = await fetch(TASK_API_URL)
+
+  if (!response.ok) {
+    return []
+  }
+
+  const todos = await response.json()
+  const tasks = Array.isArray(todos) ? todos.map(normalizeTask) : []
+
+  writeStorage(tasks)
+  return tasks
+}
 
 export const saveTasks = async (tasks) => {
   writeStorage(tasks)

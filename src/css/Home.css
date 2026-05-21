@@ -16,11 +16,11 @@
 .glass-panel {
   background: linear-gradient(
     180deg,
-    rgba(29, 33, 53, 0.96),
-    rgba(20, 24, 40, 0.96)
+    rgba(16, 18, 28, 0.99),
+    rgba(10, 12, 20, 0.99)
   );
 
-  border: 1px solid rgba(111, 99, 255, 0.16);
+  border: 1px solid rgba(111, 99, 255, 0.08);
 
   border-radius: 22px;
 
@@ -41,7 +41,7 @@
 }
 
 .hero-panel h1 span {
-  color: #8a7dff;
+  color: #7f8cff;
 }
 
 .hero-panel p,
@@ -66,7 +66,7 @@
 
   border-radius: 18px;
 
-  background: rgba(29, 33, 53, 0.92);
+  background: rgba(15, 17, 26, 0.98);
 
   border: 1px solid rgba(255, 255, 255, 0.05);
 
@@ -112,19 +112,19 @@
 }
 
 .task-stat-card--blue {
-  border-left-color: #3d74ff;
+  border-left-color: #345fff;
 }
 
 .task-stat-card--amber {
-  border-left-color: #f2a51a;
+  border-left-color: #c38d17;
 }
 
 .task-stat-card--green {
-  border-left-color: #32b75c;
+  border-left-color: #279b4b;
 }
 
 .task-stat-card--cyan {
-  border-left-color: #4b8fff;
+  border-left-color: #4a78d8;
 }
 
 /* ========================= */
@@ -168,7 +168,7 @@
 
   border-radius: 22px;
 
-  background: rgba(29, 33, 53, 0.86);
+  background: rgba(10, 12, 20, 0.96);
 
   border: 1px solid rgba(111, 99, 255, 0.06);
 
@@ -201,8 +201,8 @@
 .status-filter__button--active {
   background: linear-gradient(
     135deg,
-    #7467ff 0%,
-    #6f63ff 100%
+    #5966f0 0%,
+    #4f5ce0 100%
   );
 
   color: white;
@@ -241,7 +241,7 @@
 
   border-radius: 18px;
 
-  background: rgba(29, 33, 53, 0.92);
+  background: rgba(14, 16, 25, 0.98);
 
   border: 1px solid rgba(111, 99, 255, 0.14);
 
@@ -249,6 +249,71 @@
   flex-direction: column;
 
   gap: 16px;
+}
+
+.task-card--editing {
+  min-height: auto;
+}
+
+.task-edit-form {
+  display: grid;
+  gap: 14px;
+}
+
+.task-edit-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.task-edit-form span {
+  color: #8b91ab;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.task-edit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.task-edit-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #f5f7ff;
+  outline: none;
+  color-scheme: dark;
+}
+
+.task-edit-input option {
+  background: #11131d;
+  color: #f5f7ff;
+}
+
+.task-edit-input:focus {
+  border-color: rgba(111, 99, 255, 0.7);
+  box-shadow: 0 0 0 3px rgba(111, 99, 255, 0.12);
+}
+
+.task-edit-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.task-edit-actions .task-button {
+  width: 120px;
+  height: 54px;
+  min-width: 120px;
+  padding: 0 16px;
+  border-radius: 14px;
+  box-sizing: border-box;
 }
 
 .task-card__id {
@@ -292,18 +357,18 @@
 }
 
 .task-status--in-progress {
-  background: rgba(255, 170, 0, 0.16);
-  color: #ffb52d;
+  background: rgba(170, 118, 0, 0.18);
+  color: #f0b12f;
 }
 
 .task-status--completed {
-  background: rgba(67, 190, 107, 0.16);
-  color: #5ad57e;
+  background: rgba(48, 143, 80, 0.16);
+  color: #65c882;
 }
 
 .task-status--hold {
-  background: rgba(72, 122, 255, 0.16);
-  color: #76a4ff;
+  background: rgba(50, 85, 180, 0.18);
+  color: #7e9df7;
 }
 
 .task-assignee {
@@ -343,8 +408,36 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.task-button--save {
+  background: linear-gradient(135deg, #7266ff 0%, #675cf0 100%);
+  border: 1px solid rgba(111, 99, 255, 0.18);
+  box-shadow: 0 8px 18px rgba(111, 99, 255, 0.18);
+}
+
+.task-button--cancel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #c7ccdf;
+}
+
 .task-button--delete {
-  background: rgba(255, 82, 82, 0.92);
+  background: rgba(86, 24, 30, 0.28);
+  border: 1px solid rgba(255, 82, 82, 0.35);
+  color: #ff6767;
+  box-shadow: inset 0 0 0 1px rgba(255, 82, 82, 0.04);
+}
+
+.task-button--delete:hover {
+  background: rgba(110, 28, 35, 0.34);
+  border-color: rgba(255, 98, 98, 0.55);
+  color: #ff7a7a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(255, 82, 82, 0.08);
+}
+
+.task-button--save:hover {
+  background: linear-gradient(135deg, #7a70ff 0%, #6a5ff2 100%);
+  box-shadow: 0 10px 22px rgba(111, 99, 255, 0.24);
 }
 
 .task-button:hover,
@@ -390,5 +483,9 @@
 
   .task-button {
     width: 100%;
+  }
+
+  .task-edit-grid {
+    grid-template-columns: 1fr;
   }
 }

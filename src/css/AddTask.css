@@ -33,6 +33,12 @@
   background: rgba(255, 255, 255, 0.025);
   color: #eef1ff;
   outline: none;
+  color-scheme: dark;
+}
+
+.task-form select option {
+  background: #11131d;
+  color: #eef1ff;
 }
 
 .task-form input:focus,

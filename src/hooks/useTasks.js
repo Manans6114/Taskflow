@@ -18,12 +18,22 @@ const useTasks = () => {
   useEffect(() => {
     let active = true
 
-    loadTasks().then((storedTasks) => {
-      if (active) {
-        setTasks(storedTasks)
-        setLoading(false)
-      }
-    })
+    loadTasks()
+      .then((storedTasks) => {
+        if (active) {
+          setTasks(storedTasks)
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setTasks([])
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setLoading(false)
+        }
+      })
 
     return () => {
       active = false
